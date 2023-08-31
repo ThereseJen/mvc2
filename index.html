@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MVC-oppgave</title>
+<style>
+body {
+background-color: beige;
+}
+
+div.container {
+display: flex;
+flex-direction: column;
+align-items: center;
+font-size: large;
+font-family: calibri;
+margin-top: 50px;
+}
+
+.rute {
+display: flex;
+flex-direction: row;
+
+padding: 20px;
+width: 250px;
+}
+
+.answers {
+display: flex;
+justify-content: space-between;
+padding-top: 10px;
+}
+
+.answer-item {   
+display: flex;     
+border: solid;
+width: 150px;
+height: 50px;
+border-radius: 40%;
+padding: 10px;
+margin: 10px;
+text-align: center;
+justify-content: center;
+align-items: center;
+background-color: lightblue;
+cursor: pointer;
+}     
+
+</style>
+
+</head>
+<body>
+<div id="app"></div>   
+
+<script>
+//model
+let firstGroup = '';
+let secondGroup = '';
+let selectedText = '';
+let app = document.getElementById('app');
+
+//view
+updateView();
+function updateView() {
+app.innerHTML = /*HTML*/ `
+
+<div class="container">
+<div class="rute">
+<div>Det var en gang en</div>
+<div id="gruppe1"></div>        
+</div>
+
+<div class="rute">
+<div>Som bodde i en</div>  
+<div id="gruppe2"></div>
+</div>
+
+<div class="answers">
+<div class="answer-item" id="name1" onclick="animals(this)">&nbsp Brennmanet</div>
+<div class="answer-item" id="name2" onclick="animals(this)">&nbsp Hund</div>
+<div class="answer-item" id="name3" onclick="animals(this)">&nbsp Katt</div>
+<div class="answer-item" id="place1" onclick="choises(this)">&nbsp Lavvo</div>
+<div class="answer-item" id="place2" onclick="choises(this)">&nbsp Hytte</div>
+<div class="answer-item" id="place3" onclick="choises(this)">&nbsp Søppeldunk</div>
+</div>
+</div>
+`
+document.getElementById('app').innerHTML=html;
+}
+
+//controller
+function animals(element) {
+selectedText = element.textContent;
+firstGroup = selectedText;
+document.getElementById('gruppe1').textContent = firstGroup;
+}
+
+function choises(element) {
+selectedText = element.textContent;
+secondGroup = selectedText;
+document.getElementById('gruppe2').textContent = secondGroup;
+}
+
+
+
+</script>
+</body>
+</html>
